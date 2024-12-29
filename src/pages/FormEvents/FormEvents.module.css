@@ -1,0 +1,139 @@
+.formContainer {
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.formGroup {
+  margin-bottom: 1.75rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #374151;
+  margin-bottom: 0.55rem;
+  text-align: left;
+}
+
+.formGroup input,
+.formGroup textarea,
+.formGroup select {
+  padding: 1.15rem 1rem;
+  background-color: #fdfdfd;
+  border: 1px solid #dddfe6;
+  border-radius: 15px;
+  font-size: 1rem;
+  color: #1f2937;
+  transition: all 0.2s ease;
+}
+
+.formGroup input:hover,
+.formGroup textarea:hover,
+.formGroup select:hover {
+  background-color: #f5efef;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus,
+.formGroup select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.formGroup textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.formRow {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.formRow .formGroup {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.coordinatesDisplay {
+  background-color: #f0f1f1;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+.coordinatesDisplay .formGroup input {
+  background-color: #f9f8fa;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  font-family: monospace;
+}
+
+/* Style spécifique pour l'input file */
+.formGroup input[type="file"] {
+  padding: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.formGroup input[type="file"]::-webkit-file-upload-button {
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  margin-right: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.formGroup input[type="file"]::-webkit-file-upload-button:hover {
+  background-color: #2563eb;
+}
+
+.submitButton {
+  background-color: #223241;
+  color: white;
+  padding: 1.2rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.submitButton:hover {
+  background-color: #131929;
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+
+.contentWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pageTitle {
+  text-align: center;
+  color: #223241;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}

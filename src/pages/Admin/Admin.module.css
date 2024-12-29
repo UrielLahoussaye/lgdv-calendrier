@@ -1,0 +1,199 @@
+.pageContainer {
+  min-height: 100vh;
+  background-color: #f0f2f5;
+}
+
+.adminContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.adminHeader {
+  background-color: white;
+  padding: 1.5rem 2rem;
+  border-radius: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.adminTitle {
+  font-size: 1.75rem;
+  color: #223241;
+  font-weight: 600;
+  margin: 0;
+}
+
+.userManagementSection {
+  background-color: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  color: #374151;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+/* Formulaire d'ajout */
+.addUserForm {
+  background-color: #f0f1f1;
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+}
+
+.formGroup {
+  margin-bottom: 1.75rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #374151;
+  margin-bottom: 0.55rem;
+  text-align: left;
+}
+
+.formGroup input,
+.formGroup select {
+  padding: 1.15rem 1rem;
+  background-color: #fdfdfd;
+  border: 1px solid #dddfe6;
+  border-radius: 15px;
+  font-size: 1rem;
+  color: #1f2937;
+  transition: all 0.2s ease;
+}
+
+.formGroup input:hover,
+.formGroup select:hover {
+  background-color: #f5efef;
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.formRow {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.formRow .formGroup {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+/* Table des utilisateurs */
+.usersTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 1rem;
+}
+
+.usersTable th {
+  text-align: left;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  color: #374151;
+  font-weight: 600;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.usersTable td {
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  color: #4b5563;
+}
+
+.usersTable tr:hover td {
+  background-color: #f9fafb;
+}
+
+/* Boutons */
+.primaryButton {
+  background-color: #223241;
+  color: white;
+  padding: 1.2rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.primaryButton:hover {
+  background-color: #131929;
+}
+
+.primaryButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.editButton {
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-right: 0.5rem;
+}
+
+.editButton:hover {
+  background-color: #2563eb;
+}
+
+.deleteButton {
+  background-color: #ef4444;
+  color: white;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.deleteButton:hover {
+  background-color: #dc2626;
+}
+
+.roleTag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.roleAdmin {
+  composes: roleTag;
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.roleUser {
+  composes: roleTag;
+  background-color: #e0e7ff;
+  color: #3730a3;
+}

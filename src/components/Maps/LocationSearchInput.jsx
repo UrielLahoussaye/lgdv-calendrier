@@ -50,10 +50,10 @@ function LocationSearchInput({ onLocationSelect }) {
 
   const handleInputChange = (e) => {
     setValue(e.target.value);
-    if (!e.target.value) {
-      onLocationSelect(null);
-    }
   };
+
+  if (!isLoaded) return <div>Chargement...</div>;
+  if (error) return <div>Erreur de chargement de Google Maps</div>;
 
   return (
     <div className="location-search">
@@ -62,9 +62,8 @@ function LocationSearchInput({ onLocationSelect }) {
         type="text"
         value={value}
         onChange={handleInputChange}
-        placeholder={!isLoaded ? "Chargement..." : error ? "Erreur de chargement" : "Entrez une adresse"}
         className="location-input"
-        disabled={!isLoaded || error}
+        placeholder="Entrez une adresse"
       />
     </div>
   );

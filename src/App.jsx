@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { onAuthStateChange, logout } from './firebase/authService';
 import { db } from './firebase/config';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import Login from './components/Login';
-import AdminPanel from './components/AdminPanel';
+import AdminPage from './pages/Admin/Admin';
+import AddEvent from './pages/FormEvents/AddEvent';
 import Navbar from './components/Navbar/Navbar';
 import EventList from './components/Events/EventList';
 import './App.css';
@@ -12,13 +14,11 @@ function App() {
   const [user, setUser] = useState(null);
   const [userRole, setUserRole] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [showAdmin, setShowAdmin] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChange(async (user) => {
       setUser(user);
       if (user) {
-        // Vérifier le rôle de l'utilisateur
         try {
           const q = query(
             collection(db, 'allowedUsers'),
@@ -49,7 +49,7 @@ function App() {
   };
 
   if (loading) {
-    return <div className="loading">Chargement...</div>;
+    return <div>Chargement...</div>;
   }
 
   if (!user) {
@@ -58,18 +58,36 @@ function App() {
 
   return (
     <div className="app">
-      <Navbar 
-        userRole={userRole}
-        showAdmin={showAdmin}
-        onAdminClick={() => setShowAdmin(!showAdmin)}
-        onLogout={handleLogout}
-      />
-      {showAdmin && userRole === 'admin' ? (
-        <AdminPanel />
-      ) : (
-        <main className="main-content">
-          <EventList user={user} />
-        </main>
+      {!loading && (
+        <>
+          <Navbar user={user} onLogout={handleLogout} userRole={userRole} />
+          <main className="main-content">
+            <Routes>
+              <Route path="/" element={<EventList user={user} />} />
+              <Route
+                path="/ajouter"
+                element={
+                  user ? <AddEvent user={user} /> : <Navigate to="/login" />
+                }
+              />
+              <Route
+                path="/admin"
+                element={
+                  user && userRole === 'admin' ? (
+                    <AdminPage />
+                  ) : (
+                    <Navigate to="/" />
+                  )
+                }
+              />
+              <Route
+                path="/login"
+                element={user ? <Navigate to="/" /> : <Login />}
+              />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </main>
+        </>
       )}
     </div>
   );
