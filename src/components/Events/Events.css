@@ -1,98 +1,151 @@
 .events-container {
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
 }
 
 .event-form {
   background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
   margin-bottom: 2rem;
 }
 
 .event-form h2 {
-  margin-bottom: 1.5rem;
-  color: #2c3e50;
+  margin-bottom: 2rem;
+  color: #1a1a1a;
+  font-size: 1.75rem;
+  font-weight: 600;
+  text-align: center;
 }
 
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
   position: relative;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
 }
 
 .form-row {
+  width: 100%;
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 1.5rem;
   position: relative;
 }
 
 .form-row .form-group {
-  flex: 1;
-  min-width: 0; /* Ajout important pour empêcher le débordement */
+  width: 100%;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 0.5rem;
-  color: #2c3e50;
+  color: #4a5568;
+  font-size: 0.975rem;
   font-weight: 500;
+  transition: color 0.2s ease;
+  text-align: left;
 }
 
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group select {
   width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 1rem;
+  padding: 1.275rem 1rem;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  background-color: #fafafa;
+  transition: all 0.2s ease;
+  color: #182335;
+  font-weight: 500;
+  box-sizing: border-box;
+  margin-top: 0.25rem;
+  text-align: left;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
 }
 
 .form-group textarea {
-  min-height: 100px;
+  min-height: 120px;
   resize: vertical;
 }
 
-.form-select {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-  background-color: white;
-  cursor: pointer;
+.form-group input:hover,
+.form-group textarea:hover,
+.form-group select:hover {
+  border-color: #cbd5e0;
 }
 
-.form-select:focus {
-  outline: none;
-  border-color: #4a90e2;
-  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
-}
-
-.form-select option {
-  padding: 8px;
-}
-
-button {
-  background-color: #3498db;
+.submit-button {
+  background-color: #4299e1;
   color: white;
+  padding: 0.875rem 2rem;
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  cursor: pointer;
+  border-radius: 8px;
+  font-size: 1rem;
   font-weight: 500;
-  transition: background-color 0.2s;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  align-self: flex-start;
 }
 
-button:hover {
-  background-color: #2980b9;
+.submit-button:hover {
+  background-color: #3182ce;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(66, 153, 225, 0.2);
 }
 
-button:disabled {
-  background-color: #95a5a6;
+.submit-button:active {
+  transform: translateY(0);
+}
+
+.submit-button:disabled {
+  background-color: #a0aec0;
   cursor: not-allowed;
+  transform: none;
+}
+
+/* Style pour le message d'erreur */
+.error-message {
+  color: #e53e3e;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+/* Style pour le message de succès */
+.success-message {
+  color: #38a169;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+/* Styles spécifiques pour le conteneur d'autocomplétion Google Places */
+.pac-container {
+  z-index: 1050 !important;
+  width: auto !important;
+  max-width: 100% !important;
+  left: auto !important;
+  border-radius: 8px;
+  margin-top: 4px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border: none;
+  padding: 8px 0;
 }
 
 .events-list {
@@ -162,19 +215,12 @@ button:disabled {
 }
 
 .coordinates-display {
-  margin: 10px 0;
-  padding: 10px;
-  background-color: #f8f9fa;
-  border-radius: 4px;
+  flex-direction: row !important;
+  gap: 1rem !important;
 }
 
 .coordinates-display .form-group {
   flex: 1;
-  margin-right: 10px;
-}
-
-.coordinates-display .form-group:last-child {
-  margin-right: 0;
 }
 
 .coordinates-input {
@@ -191,11 +237,4 @@ button:disabled {
 .coordinates-display label {
   color: #6c757d;
   font-size: 0.9rem;
-}
-
-.pac-container {
-  z-index: 1050 !important;
-  width: auto !important;
-  max-width: 100% !important;
-  left: auto !important;
 }
