@@ -19,15 +19,19 @@
 
 .form-group {
   margin-bottom: 1.5rem;
+  position: relative;
+  width: 100%;
 }
 
 .form-row {
   display: flex;
   gap: 1rem;
+  position: relative;
 }
 
 .form-row .form-group {
   flex: 1;
+  min-width: 0; /* Ajout important pour empêcher le débordement */
 }
 
 .form-group label {
@@ -187,4 +191,11 @@ button:disabled {
 .coordinates-display label {
   color: #6c757d;
   font-size: 0.9rem;
+}
+
+.pac-container {
+  z-index: 1050 !important;
+  width: auto !important;
+  max-width: 100% !important;
+  left: auto !important;
 }
